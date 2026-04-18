@@ -1,18 +1,18 @@
 {
-  "anytime": ["Hey there sexy!"],
+  "anytime": ["Olá Fábio!"],
   "morning": [
-    "Good morning, sunshine!",
-    "Who needs coffee when you have your smile?",
-    "Go get 'em, Tiger!"
+    "Bom dia! \nComece com intenção.",
+    "Hoje é dia de \nEvoluir um pouco mais.",
+    "Primeiro passo dado, \nO resto vem."
   ],
   "afternoon": [
-    "Hitting your stride!",
-    "You are making a difference!",
-    "You're more fun than bubble wrap!"
+    "Boa tarde! \nMantenha o ritmo - você \nindo bem.",
+    "Consistência agora \nfaz diferença depois.",
+    "Continue, mesmo que \nem ritmo leve!"
   ],
   "evening": [
-    "You made someone \nsmile today, I know it.",
-    "You are making \na difference.",
-    "The day was better \nfor your efforts."
+    "Boa noite! \nBom trabalho hoje - evolução \nconta.",
+    "Recupere bem \npara amanhã.",
+    "Cada esforço somado \nconstrói resultado."
   ]
 }
