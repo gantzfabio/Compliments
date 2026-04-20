@@ -16,3 +16,6 @@ log - btn reset
 0|mm  |   signal: null,
 0|mm  |   cmd: 'sudo shutdown -r now'
 0|mm  | }
+
+
+echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/magicmirror-nopasswd
