@@ -1,3 +1,4 @@
+<img width="806" height="331" alt="Captura de Tela 2026-04-19 às 19 06 35" src="https://github.com/user-attachments/assets/a2031ddc-4e1f-4f4b-958e-cb5b921874ec" />
 # Compliments
 Frases usadas no MagicMirror
 
