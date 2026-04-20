@@ -1,4 +1,4 @@
-<img width="806" height="331" alt="Captura de Tela 2026-04-19 às 19 06 35" src="https://github.com/user-attachments/assets/a2031ddc-4e1f-4f4b-958e-cb5b921874ec" />
+
 # Compliments
 Frases usadas no MagicMirror
 
@@ -60,3 +60,10 @@ pm2 restart MagicMirror
 Como nós alteramos o código direto na raiz do módulo, agora quando você apertar o botão "Power" no celular, ele será forçado a disparar o vcgencmd e a tela finalmente vai desligar e ligar. Pode testar!
 
 ************************************************************************
+
+<img width="848" height="661" alt="Captura de Tela 2026-04-20 às 02 24 09" src="https://github.com/user-attachments/assets/dd5d243e-c648-4622-8103-3ca33c3ec9b6" />
+<img width="846" height="708" alt="Captura de Tela 2026-04-20 às 02 24 26" src="https://github.com/user-attachments/assets/b5d0b7eb-725f-4c5d-b09d-bf08583bdaf4" />
+<img width="799" height="359" alt="Captura de Tela 2026-04-20 às 02 24 45" src="https://github.com/user-attachments/assets/d44b5d0c-4765-41e9-80e2-b971598cc694" />
+
+
+
