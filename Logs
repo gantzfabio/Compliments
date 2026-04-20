@@ -1,0 +1,18 @@
+log - btn reset
+
+0|mm  | [2026-04-20 02:41:11.958] [LOG]   [MMM-Remote-Control] Error: Command failed: sudo shutdown -r now
+0|mm  | sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+0|mm  | sudo: a password is required
+0|mm  |     at genericNodeError (node:internal/errors:985:15)
+0|mm  |     at wrappedFn (node:internal/errors:539:14)
+0|mm  |     at ChildProcess.exithandler (node:child_process:417:12)
+0|mm  |     at ChildProcess.emit (node:events:508:28)
+0|mm  |     at maybeClose (node:internal/child_process:1100:16)
+0|mm  |     at Socket.<anonymous> (node:internal/child_process:457:11)
+0|mm  |     at Socket.emit (node:events:508:28)
+0|mm  |     at Pipe.<anonymous> (node:net:346:12) {
+0|mm  |   code: 1,
+0|mm  |   killed: false,
+0|mm  |   signal: null,
+0|mm  |   cmd: 'sudo shutdown -r now'
+0|mm  | }
