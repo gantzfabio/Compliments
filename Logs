@@ -25,37 +25,21 @@ nano ~/MagicMirror/modules/MMM-Remote-Control/translations/en.json
 nano ~/MagicMirror/config/custom_menu.json
 
 
-[
-  {
-    "id": "meus-comandos",
-    "type": "menu",
-    "text": "Meus Comandos",
-    "icon": "star",
-    "items": [
-      {
-        "id": "botao-alerta",
-        "type": "item",
-        "text": "Tocar Som de Alerta",
-        "icon": "volume-up",
-        "action": "COMMAND",
-        "content": {
-          "command": "meuBotao1"
-        }
-      }
-    ]
-  }
-]
+nano ~/presence.sh
 
+#!/bin/bash
 
-# For example, you can run a backup of all your user accounts
-# at 5 a.m every week with:
-# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
-# 
-# For more information see the manual pages of crontab(5) and cron(8)
-# 
-# m h  dom mon dow   command
-# 02 03 * * * /usr/bin/vcgencmd display_power 0
-# 03 03 * * * /usr/bin/vcgencmd display_power 1
+IP="192.168.1.50"
+HORA=$(date +%H)
 
+if [ "$HORA" -ge 6 ] && [ "$HORA" -lt 23 ]; then
+  if ping -c 1 $IP > /dev/null; then
+    /usr/bin/vcgencmd display_power 1
+  else
+    /usr/bin/vcgencmd display_power 0
+  fi
+else
+  /usr/bin/vcgencmd display_power 0
+fi
 
 
