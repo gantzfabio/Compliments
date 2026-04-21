@@ -22,7 +22,6 @@ echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/magicmirror-n
 
 nano ~/MagicMirror/modules/MMM-Remote-Control/translations/en.json
 
-nano ~/MagicMirror/config/custom_menu.json
 
 
 nano ~/presence.sh
