@@ -47,55 +47,15 @@ nano ~/MagicMirror/config/custom_menu.json
 ]
 
 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+# 02 03 * * * /usr/bin/vcgencmd display_power 0
+# 03 03 * * * /usr/bin/vcgencmd display_power 1
 
-cat << 'EOF' > ~/MagicMirror/config/custom_menu.json
-{
-    "id": "menu-principal",
-    "type": "menu",
-    "text": "Controle do Espelho",
-    "icon": "bars",
-    "items": [
-        {
-            "id": "power-menu",
-            "type": "menu",
-            "text": "Energia da Tela",
-            "icon": "power-off",
-            "items": [
-                {
-                    "id": "power-off",
-                    "type": "item",
-                    "text": "Desligar Tela",
-                    "icon": "television",
-                    "action": "MONITOROFF"
-                },
-                {
-                    "id": "power-on",
-                    "type": "item",
-                    "text": "Ligar Tela",
-                    "icon": "television",
-                    "action": "MONITORON"
-                }
-            ]
-        },
-        {
-            "id": "meus-comandos",
-            "type": "menu",
-            "text": "Meus Comandos",
-            "icon": "star",
-            "items": [
-                {
-                    "id": "meu-botao-1",
-                    "type": "item",
-                    "text": "Tocar Som de Alerta",
-                    "icon": "volume-up",
-                    "action": "COMMAND",
-                    "content": {
-                        "command": "meuBotao1"
-                    }
-                }
-            ]
-        }
-    ]
-}
-EOF
+
 
