@@ -50,3 +50,9 @@ nano ~/MagicMirror/config/custom_menu.json
 
 
 cp ~/MagicMirror/modules/MMM-Remote-Control/custom_menu.example.json ~/MagicMirror/config/custom_menu.json
+
+
+
+fabio@Raspi-OS:~ $ cp ~/MagicMirror/modules/MMM-Remote-Control/custom_menu.example.json ~/MagicMirror/config/custom_menu.json
+cp: cannot stat '/home/fabio/MagicMirror/modules/MMM-Remote-Control/custom_menu.example.json': No such file or directory
+
