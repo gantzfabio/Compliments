@@ -48,11 +48,54 @@ nano ~/MagicMirror/config/custom_menu.json
 
 
 
-
-cp ~/MagicMirror/modules/MMM-Remote-Control/custom_menu.example.json ~/MagicMirror/config/custom_menu.json
-
-
-
-fabio@Raspi-OS:~ $ cp ~/MagicMirror/modules/MMM-Remote-Control/custom_menu.example.json ~/MagicMirror/config/custom_menu.json
-cp: cannot stat '/home/fabio/MagicMirror/modules/MMM-Remote-Control/custom_menu.example.json': No such file or directory
+cat << 'EOF' > ~/MagicMirror/config/custom_menu.json
+{
+    "id": "menu-principal",
+    "type": "menu",
+    "text": "Controle do Espelho",
+    "icon": "bars",
+    "items": [
+        {
+            "id": "power-menu",
+            "type": "menu",
+            "text": "Energia da Tela",
+            "icon": "power-off",
+            "items": [
+                {
+                    "id": "power-off",
+                    "type": "item",
+                    "text": "Desligar Tela",
+                    "icon": "television",
+                    "action": "MONITOROFF"
+                },
+                {
+                    "id": "power-on",
+                    "type": "item",
+                    "text": "Ligar Tela",
+                    "icon": "television",
+                    "action": "MONITORON"
+                }
+            ]
+        },
+        {
+            "id": "meus-comandos",
+            "type": "menu",
+            "text": "Meus Comandos",
+            "icon": "star",
+            "items": [
+                {
+                    "id": "meu-botao-1",
+                    "type": "item",
+                    "text": "Tocar Som de Alerta",
+                    "icon": "volume-up",
+                    "action": "COMMAND",
+                    "content": {
+                        "command": "meuBotao1"
+                    }
+                }
+            ]
+        }
+    ]
+}
+EOF
 
