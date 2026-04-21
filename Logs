@@ -23,3 +23,23 @@ echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/magicmirror-n
 nano ~/MagicMirror/modules/MMM-Remote-Control/translations/en.json
 
 nano ~/MagicMirror/config/custom_menu.json
+
+
+{
+  "id": "meus-comandos",
+  "type": "menu",
+  "text": "Meus Comandos",
+  "icon": "star",
+  "items": [
+    {
+      "id": "botao-alerta",
+      "type": "item",
+      "text": "Tocar Som de Alerta",
+      "icon": "volume-up",
+      "action": "COMMAND",
+      "content": {
+        "command": "meuBotao1"
+      }
+    }
+  ]
+}
