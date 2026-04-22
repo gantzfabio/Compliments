@@ -29,13 +29,13 @@ fi
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.css
 
 
-
 body {
-  background: #0b0b0c;
+  background: #000;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   color: #fff;
 }
 
+/* CONTAINER */
 .container {
   max-width: 420px;
   margin: 0 auto;
@@ -45,76 +45,90 @@ body {
 /* HEADER */
 .header {
   text-align: center;
-  font-size: 14px;
-  letter-spacing: 3px;
-  opacity: 0.6;
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: 0.5;
   margin-bottom: 20px;
 }
 
-/* BLOCO SUPERIOR */
+/* CARD SUPERIOR */
 .header::after {
-  content: "MAGICMIRROR²";
+  content: "MagicMirror²";
   display: block;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 18px;
-  border-radius: 16px;
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
   font-size: 16px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
-/* MENU */
+/* MENU BASE */
 .menu {
+  position: relative;
+  overflow: hidden;
+}
+
+/* TODOS MENUS */
+.menu .main-menu,
+.menu .power-menu,
+.menu .settings-menu,
+.menu .edit-menu {
+  position: absolute;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
 
-/* ESCONDER MENUS NÃO ATIVOS */
-.menu .power-menu,
-.menu .edit-menu,
-.menu .settings-menu {
-  display: none;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.35s ease;
 }
 
 /* MENU ATIVO */
-.menu .main-menu.active,
-.menu .power-menu.active,
-.menu .settings-menu.active,
-.menu .edit-menu.active {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.menu .active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
 }
 
 /* ITEM */
 .menu-element {
-  height: 56px;
-  border-radius: 14px;
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.06);
+  height: 58px;
+  border-radius: 16px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   padding: 0 16px;
-  font-size: 15px;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,0.06);
+
   transition: all 0.2s ease;
 }
 
-/* HOVER / TOUCH */
+/* TOQUE */
 .menu-element:active {
-  transform: scale(0.97);
-  background: #1a1a1c;
+  transform: scale(0.96);
+  background: rgba(255,255,255,0.08);
 }
 
 /* TEXTO */
 .text {
   flex: 1;
-  text-align: left;
-  margin-left: 10px;
+  margin-left: 12px;
+  font-size: 15px;
 }
 
 /* ÍCONE ESQUERDA */
@@ -124,31 +138,31 @@ body {
   opacity: 0.7;
 }
 
-/* SETA DIREITA */
+/* SETA */
 .menu-element::after {
   content: "›";
-  font-size: 18px;
-  opacity: 0.4;
+  font-size: 20px;
+  opacity: 0.3;
 }
 
-/* ÍCONES PERSONALIZADOS */
+/* ICONES */
 #power-button::before { content: "\f011"; }
 #edit-button::before { content: "\f044"; }
 #settings-button::before { content: "\f013"; }
 #save-button::before { content: "\f0c7"; }
 #mirror-link-button::before { content: "\f08e"; }
 
-/* POWER MENU */
 #shut-down-button::before { content: "\f011"; }
 #restart-button::before { content: "\f021"; }
 #restart-mm-button::before { content: "\f01e"; }
 #monitor-on-button::before { content: "\f26c"; }
 #monitor-off-button::before { content: "\f26c"; }
 
-/* REMOVER ICONES ANTIGOS */
+/* ESCONDER ICONES ANTIGOS */
 .fa {
   display: none;
 }
+
 
 
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.html
