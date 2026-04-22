@@ -28,7 +28,6 @@ fi
 
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.css
 
-
 /* ===== BASE ===== */
 body {
   background: #0b0d12 !important;
@@ -37,112 +36,95 @@ body {
   margin: 0;
 }
 
-/* Container */
+/* container */
 .container {
   padding: 16px;
 }
 
-/* Título */
+/* título */
 .header {
   font-size: 13px;
-  font-weight: 600;
   opacity: 0.5;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-/* ===== BOTÕES REAIS ===== */
+/* ===== GRID ===== */
+.menu.normal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* ===== APP ICON ===== */
 .menu-element.button {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
 
-  padding: 18px;
-  margin-bottom: 12px;
-
-  border-radius: 18px;
-
-  font-size: 17px;
-  font-weight: 500;
+  height: 100px;
+  border-radius: 22px;
 
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
 
-  box-shadow: 
-    0 6px 20px rgba(0,0,0,0.5),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-
+  text-align: center;
   transition: all 0.15s ease;
 }
 
 /* toque */
 .menu-element.button:active {
-  transform: scale(0.96);
+  transform: scale(0.92);
   opacity: 0.8;
 }
 
-/* ícones */
+/* ícone */
 .menu-element .fa {
-  font-size: 18px;
-  opacity: 0.8;
+  font-size: 28px;
+  margin-bottom: 6px;
 }
 
 /* texto */
 .menu-element .text {
-  flex: 1;
+  font-size: 12px;
+  opacity: 0.8;
 }
 
-/* ===== CORES POR FUNÇÃO ===== */
+/* ===== CORES POR APP ===== */
 
-/* Power */
 #power-button {
   background: linear-gradient(135deg, #ff3b30, #ff6b6b);
 }
 
-/* Edit */
 #edit-button {
   background: linear-gradient(135deg, #34c759, #30d158);
 }
 
-/* Settings */
 #settings-button {
   background: linear-gradient(135deg, #0a84ff, #5ac8fa);
 }
 
-/* Save */
 #save-button {
   background: linear-gradient(135deg, #ff9f0a, #ffd60a);
 }
 
-/* Mirror */
 #mirror-link-button {
   background: linear-gradient(135deg, #5856d6, #7d7aff);
 }
 
-/* ===== SUBMENUS (quando abre Power etc) ===== */
-
-.power-menu .menu-element.button {
-  background: rgba(255,255,255,0.04);
+/* ===== ESCONDER SUBMENUS DO GRID ===== */
+.power-menu,
+.edit-menu,
+.settings-menu {
+  display: none !important;
 }
 
-#shut-down-button {
-  background: linear-gradient(135deg, #ff3b30, #ff6b6b);
-}
-
-#restart-button {
-  background: linear-gradient(135deg, #ff9f0a, #ffd60a);
-}
-
-#restart-mm-button {
-  background: linear-gradient(135deg, #5ac8fa, #0a84ff);
-}
-
-#monitor-on-button {
-  background: linear-gradient(135deg, #34c759, #30d158);
-}
-
-#monitor-off-button {
-  background: linear-gradient(135deg, #ff3b30, #ff453a);
+/* ===== RESPONSIVO (mobile melhor) ===== */
+@media (max-width: 400px) {
+  .menu.normal {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 
