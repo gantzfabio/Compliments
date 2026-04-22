@@ -38,67 +38,68 @@ body {
 
 /* container */
 .container {
-  padding: 16px;
+  padding: 20px;
+  max-width: 420px;
+  margin: auto;
 }
 
 /* título */
 .header {
+  text-align: center;
   font-size: 13px;
   opacity: 0.5;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 24px;
 }
 
 /* ===== GRID ===== */
 .menu.normal {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas (melhor proporção) */
   gap: 18px;
 }
 
-/* ===== APP ICON ===== */
+/* ===== CARD (APP) ===== */
 .menu-element.button {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  height: 100px;
-  border-radius: 22px;
+  height: 90px; /* MENOR (era grande demais) */
+  border-radius: 20px;
 
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
 
-  text-align: center;
   transition: all 0.15s ease;
 }
 
 /* toque */
 .menu-element.button:active {
-  transform: scale(0.92);
-  opacity: 0.8;
+  transform: scale(0.94);
 }
 
-/* ícone */
+/* ÍCONE (AGORA CENTRAL E IMPORTANTE) */
 .menu-element .fa {
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 6px;
 }
 
-/* texto */
+/* TEXTO */
 .menu-element .text {
   font-size: 12px;
   opacity: 0.8;
+  text-align: center;
 }
 
-/* ===== CORES POR APP ===== */
+/* ===== CORES MAIS SUAVES ===== */
 
 #power-button {
   background: linear-gradient(135deg, #ff3b30, #ff6b6b);
 }
 
 #edit-button {
-  background: linear-gradient(135deg, #34c759, #30d158);
+  background: linear-gradient(135deg, #30d158, #34c759);
 }
 
 #settings-button {
@@ -113,18 +114,11 @@ body {
   background: linear-gradient(135deg, #5856d6, #7d7aff);
 }
 
-/* ===== ESCONDER SUBMENUS DO GRID ===== */
+/* ===== ESCONDER SUBMENUS ===== */
 .power-menu,
 .edit-menu,
 .settings-menu {
   display: none !important;
-}
-
-/* ===== RESPONSIVO (mobile melhor) ===== */
-@media (max-width: 400px) {
-  .menu.normal {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 
