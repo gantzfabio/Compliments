@@ -29,17 +29,16 @@ fi
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.css
 
 
-/* Base iOS style */
+/* Fundo geral */
 body {
   background: #0b0d12 !important;
   color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto;
-  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
 }
 
 /* Container central */
 .container {
-  padding: 16px;
+  padding: 20px;
 }
 
 /* Título */
@@ -48,90 +47,61 @@ h1 {
   font-weight: 600;
   opacity: 0.5;
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-/* Lista */
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+/* ===== CORREÇÃO REAL AQUI ===== */
 
-/* Item vira um CARD */
-li {
-  margin-bottom: 12px;
-}
+/* Todos os itens do menu */
+a {
+  display: block !important;
+  padding: 18px !important;
+  margin-bottom: 12px !important;
 
-/* Botão estilo iOS */
-li a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  border-radius: 18px !important;
+  text-decoration: none !important;
 
-  padding: 18px;
-  border-radius: 18px;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
 
-  text-decoration: none;
-  color: #fff;
-  font-size: 17px;
-  font-weight: 500;
-
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.05) !important;
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 
   box-shadow: 
-    0 4px 20px rgba(0,0,0,0.4),
+    0 6px 20px rgba(0,0,0,0.5),
     inset 0 1px 0 rgba(255,255,255,0.05);
 
   transition: all 0.15s ease;
 }
 
-/* efeito toque */
-li a:active {
-  transform: scale(0.97);
-  opacity: 0.85;
+/* toque */
+a:active {
+  transform: scale(0.96);
+  opacity: 0.8;
 }
 
-/* ícone à esquerda (fake via before) */
-li a::before {
-  content: "•";
-  font-size: 22px;
-  margin-right: 12px;
-  opacity: 0.7;
+/* ===== CORES INTELIGENTES ===== */
+
+a[href*="power"] {
+  background: linear-gradient(135deg, #ff3b30, #ff6b6b) !important;
 }
 
-/* seta estilo iOS */
-li a::after {
-  content: "›";
-  font-size: 22px;
-  opacity: 0.4;
+a[href*="edit"] {
+  background: linear-gradient(135deg, #34c759, #30d158) !important;
 }
 
-/* Cores inteligentes */
-
-li a[href*="power"] {
-  background: linear-gradient(135deg, #ff3b30, #ff6b6b);
+a[href*="settings"] {
+  background: linear-gradient(135deg, #0a84ff, #5ac8fa) !important;
 }
 
-li a[href*="edit"] {
-  background: linear-gradient(135deg, #34c759, #30d158);
+a[href*="save"] {
+  background: linear-gradient(135deg, #ff9f0a, #ffd60a) !important;
 }
 
-li a[href*="settings"] {
-  background: linear-gradient(135deg, #0a84ff, #5ac8fa);
-}
-
-li a[href*="save"] {
-  background: linear-gradient(135deg, #ff9f0a, #ffd60a);
-}
-
-/* efeito glass em dark */
-@media (prefers-color-scheme: dark) {
-  li a {
-    background: rgba(255,255,255,0.04);
-  }
+/* leve separação visual */
+hr {
+  opacity: 0.1;
 }
 
 
