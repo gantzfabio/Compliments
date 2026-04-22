@@ -147,6 +147,32 @@ body {
 }
 
 
+/* SCROLL PARA SUBMENUS LONGOS */
+.menu .main-menu.active,
+.menu .power-menu.active,
+.menu .settings-menu.active,
+.menu .edit-menu.active {
+  max-height: 75vh;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* SCROLL SUAVE (iPhone feel) */
+.menu .main-menu.active::-webkit-scrollbar,
+.menu .power-menu.active::-webkit-scrollbar,
+.menu .settings-menu.active::-webkit-scrollbar,
+.menu .edit-menu.active::-webkit-scrollbar {
+  width: 4px;
+}
+
+.menu .main-menu.active::-webkit-scrollbar-thumb,
+.menu .power-menu.active::-webkit-scrollbar-thumb,
+.menu .settings-menu.active::-webkit-scrollbar-thumb,
+.menu .edit-menu.active::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
 
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.html
 
