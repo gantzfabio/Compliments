@@ -31,7 +31,7 @@ nano ~/MagicMirror/modules/MMM-Remote-Control/remote.css
 
 
 body {
-  background: #000;
+  background: #0b0b0c;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   color: #fff;
 }
@@ -39,83 +39,115 @@ body {
 .container {
   max-width: 420px;
   margin: 0 auto;
+  padding: 20px;
 }
 
+/* HEADER */
 .header {
   text-align: center;
-  font-size: 18px;
-  letter-spacing: 2px;
-  margin: 20px 0;
-  opacity: 0.7;
+  font-size: 14px;
+  letter-spacing: 3px;
+  opacity: 0.6;
+  margin-bottom: 20px;
 }
 
-/* IMPORTANTE: não mexer na estrutura base da .menu */
-.menu {
+/* BLOCO SUPERIOR */
+.header::after {
+  content: "MAGICMIRROR²";
   display: block;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.05);
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
-/* GRID apenas para menus ativos */
-.menu .main-menu,
+/* MENU */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ESCONDER MENUS NÃO ATIVOS */
 .menu .power-menu,
-.menu .settings-menu,
-.menu .edit-menu {
+.menu .edit-menu,
+.menu .settings-menu {
   display: none;
 }
 
-/* quando ativo */
+/* MENU ATIVO */
 .menu .main-menu.active,
 .menu .power-menu.active,
 .menu .settings-menu.active,
 .menu .edit-menu.active {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* estilo dos botões */
+/* ITEM */
 .menu-element {
-  border-radius: 28px;
-  height: 120px;
+  height: 56px;
+  border-radius: 14px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.06);
+
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
-  background: #1c1c1e;
+  justify-content: space-between;
+
+  padding: 0 16px;
+  font-size: 15px;
   transition: all 0.2s ease;
 }
 
+/* HOVER / TOUCH */
 .menu-element:active {
-  transform: scale(0.96);
-  opacity: 0.8;
+  transform: scale(0.97);
+  background: #1a1a1c;
 }
 
-/* cores estilo iOS */
-#power-button { background: linear-gradient(135deg, #ff3b30, #ff6b6b); }
-#edit-button { background: linear-gradient(135deg, #34c759, #30d158); }
-#settings-button { background: linear-gradient(135deg, #007aff, #5ac8fa); }
-#save-button { background: linear-gradient(135deg, #ff9500, #ffcc00); }
-#mirror-link-button { background: linear-gradient(135deg, #5856d6, #a29bfe); }
+/* TEXTO */
+.text {
+  flex: 1;
+  text-align: left;
+  margin-left: 10px;
+}
 
-/* botões internos */
-#shut-down-button { background: #ff3b30; }
-#restart-button { background: #ff9500; }
-#restart-mm-button { background: #007aff; }
-#monitor-on-button { background: #34c759; }
-#monitor-off-button { background: #8e8e93; }
+/* ÍCONE ESQUERDA */
+.menu-element::before {
+  font-family: "FontAwesome";
+  font-size: 16px;
+  opacity: 0.7;
+}
 
-/* esconder ícones */
+/* SETA DIREITA */
+.menu-element::after {
+  content: "›";
+  font-size: 18px;
+  opacity: 0.4;
+}
+
+/* ÍCONES PERSONALIZADOS */
+#power-button::before { content: "\f011"; }
+#edit-button::before { content: "\f044"; }
+#settings-button::before { content: "\f013"; }
+#save-button::before { content: "\f0c7"; }
+#mirror-link-button::before { content: "\f08e"; }
+
+/* POWER MENU */
+#shut-down-button::before { content: "\f011"; }
+#restart-button::before { content: "\f021"; }
+#restart-mm-button::before { content: "\f01e"; }
+#monitor-on-button::before { content: "\f26c"; }
+#monitor-off-button::before { content: "\f26c"; }
+
+/* REMOVER ICONES ANTIGOS */
 .fa {
   display: none;
-}
-
-/* texto centralizado */
-.text {
-  display: block;
-  width: 100%;
 }
 
 
