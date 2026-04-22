@@ -29,43 +29,43 @@ fi
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.css
 
 
-/* Fundo geral */
+/* ===== BASE ===== */
 body {
   background: #0b0d12 !important;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  margin: 0;
 }
 
-/* Container central */
+/* Container */
 .container {
-  padding: 20px;
+  padding: 16px;
 }
 
 /* Título */
-h1 {
-  font-size: 14px;
+.header {
+  font-size: 13px;
   font-weight: 600;
   opacity: 0.5;
   letter-spacing: 1px;
   margin-bottom: 16px;
 }
 
-/* ===== CORREÇÃO REAL AQUI ===== */
+/* ===== BOTÕES REAIS ===== */
+.menu-element.button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
-/* Todos os itens do menu */
-a {
-  display: block !important;
-  padding: 18px !important;
-  margin-bottom: 12px !important;
+  padding: 18px;
+  margin-bottom: 12px;
 
-  border-radius: 18px !important;
-  text-decoration: none !important;
+  border-radius: 18px;
 
-  font-size: 18px !important;
-  font-weight: 500 !important;
-  color: #fff !important;
+  font-size: 17px;
+  font-weight: 500;
 
-  background: rgba(255,255,255,0.05) !important;
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(12px);
 
   box-shadow: 
@@ -76,166 +76,77 @@ a {
 }
 
 /* toque */
-a:active {
+.menu-element.button:active {
   transform: scale(0.96);
   opacity: 0.8;
 }
 
-/* ===== CORES INTELIGENTES ===== */
-
-a[href*="power"] {
-  background: linear-gradient(135deg, #ff3b30, #ff6b6b) !important;
+/* ícones */
+.menu-element .fa {
+  font-size: 18px;
+  opacity: 0.8;
 }
 
-a[href*="edit"] {
-  background: linear-gradient(135deg, #34c759, #30d158) !important;
+/* texto */
+.menu-element .text {
+  flex: 1;
 }
 
-a[href*="settings"] {
-  background: linear-gradient(135deg, #0a84ff, #5ac8fa) !important;
+/* ===== CORES POR FUNÇÃO ===== */
+
+/* Power */
+#power-button {
+  background: linear-gradient(135deg, #ff3b30, #ff6b6b);
 }
 
-a[href*="save"] {
-  background: linear-gradient(135deg, #ff9f0a, #ffd60a) !important;
+/* Edit */
+#edit-button {
+  background: linear-gradient(135deg, #34c759, #30d158);
 }
 
-/* leve separação visual */
-hr {
-  opacity: 0.1;
+/* Settings */
+#settings-button {
+  background: linear-gradient(135deg, #0a84ff, #5ac8fa);
+}
+
+/* Save */
+#save-button {
+  background: linear-gradient(135deg, #ff9f0a, #ffd60a);
+}
+
+/* Mirror */
+#mirror-link-button {
+  background: linear-gradient(135deg, #5856d6, #7d7aff);
+}
+
+/* ===== SUBMENUS (quando abre Power etc) ===== */
+
+.power-menu .menu-element.button {
+  background: rgba(255,255,255,0.04);
+}
+
+#shut-down-button {
+  background: linear-gradient(135deg, #ff3b30, #ff6b6b);
+}
+
+#restart-button {
+  background: linear-gradient(135deg, #ff9f0a, #ffd60a);
+}
+
+#restart-mm-button {
+  background: linear-gradient(135deg, #5ac8fa, #0a84ff);
+}
+
+#monitor-on-button {
+  background: linear-gradient(135deg, #34c759, #30d158);
+}
+
+#monitor-off-button {
+  background: linear-gradient(135deg, #ff3b30, #ff453a);
 }
 
 
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.html
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>%%TRANSLATE:TITLE%%</title>
-	<meta name="google" content="notranslate" />
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <link rel="stylesheet" type="text/css" href="modules/MMM-Remote-Control/remote.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="fonts/roboto.css">
-    <link rel="stylesheet" type="text/css" href="vendor/font-awesome-4.5.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-
-<div class="container">
-    <div id="module_1_MMM-Remote-Control" class="module">
-        <header class="header">%%TRANSLATE:TITLE%%</header>
-        <div class="module-content">
-            <div class="menu normal">
-                <!-- general back button -->
-                <div id="back-button" class="menu-element button power-menu edit-menu settings-menu">
-                    <span class="fa fa-fw fa-arrow-left" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:BACK%%</span>
-                </div>
-
-                <!-- main menu -->
-                <div id="power-button" class="menu-element button main-menu">
-                    <span class="fa fa-fw fa-power-off" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:SHUTDOWN_MENU_NAME%%</span>
-                </div>
-                <div id="edit-button" class="menu-element button main-menu">
-                    <span class="fa fa-fw fa-pencil-square-o" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:EDIT_MENU_NAME%%</span>
-                </div>
-                <div id="settings-button" class="menu-element button main-menu">
-                    <span class="fa fa-fw fa-wrench" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:CONFIGURE_MENU_NAME%%</span>
-                </div>
-                <div id="save-button" class="menu-element button main-menu">
-                    <span class="fa fa-fw fa-save" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:SAVE%%</span>
-                </div>
-                <div id="mirror-link-button" class="menu-element button main-menu">
-                    <span class="fa fa-fw fa-external-link " aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:VIEW_MIRROR%%</span>
-                </div>
-
-                <!-- settings menu -->
-                <div id="brightness-description" class="menu-element button settings-menu">
-                    <span class="stack fa-fw">
-                        <span class="fa fa-fw fa-sun-o outer-label fa-stack-1x" aria-hidden="true"></span>
-                        <span class="fa fa-fw fa-adjust inner-label fa-stack-1x" aria-hidden="true"></span>
-                    </span>
-                    <span class="text">%%TRANSLATE:BRIGHTNESS%%</span>
-                </div>
-                <div id="brightness-container" class="slider-container menu-element button settings-menu">
-                    <input id="brightness-slider" type="range" min="10" max="200" step="10" value="%%REPLACE::BRIGHTNESS%%" class="slider"/>
-                </div>
-                <div id="brightness-reset" class="menu-element button settings-menu">
-                    <span class="fa fa-fw fa-undo" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:RESET%%</span>
-                </div>
-
-                <!-- power menu -->
-                <div id="shut-down-button" class="menu-element button power-menu">
-                    <span class="fa fa-fw fa-power-off" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:SHUTDOWN%%</span>
-                </div>
-                <div id="restart-button" class="menu-element button power-menu">
-                    <span class="fa fa-fw fa-refresh" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:RESTART%%</span>
-                </div>
-                
-                <!-- MagicMirror menu -->
-                <div id="restart-mm-button" class="menu-element button power-menu">
-                    <span class="fa fa-fw fa-recycle" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:RESTARTMM%%</span>
-                </div>
-                <div id="monitor-on-button" class="menu-element button power-menu">
-                    <span class="stack fa-fw">
-                        <span class="fa fa-fw fa-television outer-label fa-stack-1x" aria-hidden="true"></span>
-                        <span class="fa fa-fw fa-check inner-monitor-label fa-stack-1x" aria-hidden="true"></span>
-                    </span>
-                    <span class="text">%%TRANSLATE:MONITORON%%</span>
-                </div>
-                <div id="monitor-off-button" class="menu-element button power-menu">
-                    <span class="stack fa-fw">
-                        <span class="fa fa-fw fa-television outer-label fa-stack-1x" aria-hidden="true"></span>
-                        <span class="fa fa-fw fa-close inner-monitor-label fa-stack-1x" aria-hidden="true"></span>
-                    </span>
-                    <span class="text">%%TRANSLATE:MONITOROFF%%</span>
-                </div>
-
-                <!-- edit menu -->
-                <div id="show-all-button" class="menu-element button edit-menu">
-                    <span class="fa fa-fw fa-toggle-on" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:SHOWALL%%</span>
-                </div>
-                <div id="hide-all-button" class="menu-element button edit-menu">
-                    <span class="fa fa-fw fa-toggle-off" aria-hidden="true"></span>
-                    <span class="text">%%TRANSLATE:HIDEALL%%</span>
-                </div>
-                <header class="header menu-element edit-menu"></header>
-                <!-- (created dynamically) -->
-                <!-- EDIT_MENU_TEMPLATE -->
-
-            </div>
-            <div class="result">
-                <div id="loading" class="status-indicator">
-                    <span class="fa fa-fw fa-spinner fa-pulse fa-fw"></span>
-                    <!-- <span class="text">%%TRANSLATE:LOADING%%</span> -->
-                </div>
-                <div id="error" class="status-indicator">
-                    <span class="fa fa-fw fa-exclamation-circle"></span>
-                    <!-- <span class="text">%%TRANSLATE:ERROR%%</span> -->
-                </div>
-                <div id="success" class="status-indicator">
-                    <span class="fa fa-fw fa-check-circle"></span>
-                    <!-- <span class="text">%%TRANSLATE:DONE%%</span> -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript" src="modules/MMM-Remote-Control/remote.js"></script>
-
-</body>
-</html>
 
