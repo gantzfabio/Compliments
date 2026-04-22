@@ -28,97 +28,94 @@ fi
 
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.css
 
-/* ===== BASE ===== */
+
+
 body {
-  background: #0b0d12 !important;
+  background: #000;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  margin: 0;
 }
 
-/* container */
 .container {
-  padding: 20px;
   max-width: 420px;
-  margin: auto;
+  margin: 0 auto;
 }
 
-/* título */
 .header {
   text-align: center;
-  font-size: 13px;
-  opacity: 0.5;
-  margin-bottom: 24px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin: 20px 0;
+  opacity: 0.7;
 }
 
-/* ===== GRID ===== */
-.menu.normal {
+/* IMPORTANTE: não mexer na estrutura base da .menu */
+.menu {
+  display: block;
+}
+
+/* GRID apenas para menus ativos */
+.menu .main-menu,
+.menu .power-menu,
+.menu .settings-menu,
+.menu .edit-menu {
+  display: none;
+}
+
+/* quando ativo */
+.menu .main-menu.active,
+.menu .power-menu.active,
+.menu .settings-menu.active,
+.menu .edit-menu.active {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 colunas (melhor proporção) */
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 10px;
 }
 
-/* ===== CARD (APP) ===== */
-.menu-element.button {
+/* estilo dos botões */
+.menu-element {
+  border-radius: 28px;
+  height: 120px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  height: 90px; /* MENOR (era grande demais) */
-  border-radius: 20px;
-
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-
-  transition: all 0.15s ease;
-}
-
-/* toque */
-.menu-element.button:active {
-  transform: scale(0.94);
-}
-
-/* ÍCONE (AGORA CENTRAL E IMPORTANTE) */
-.menu-element .fa {
-  font-size: 24px;
-  margin-bottom: 6px;
-}
-
-/* TEXTO */
-.menu-element .text {
-  font-size: 12px;
-  opacity: 0.8;
   text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: #1c1c1e;
+  transition: all 0.2s ease;
 }
 
-/* ===== CORES MAIS SUAVES ===== */
-
-#power-button {
-  background: linear-gradient(135deg, #ff3b30, #ff6b6b);
+.menu-element:active {
+  transform: scale(0.96);
+  opacity: 0.8;
 }
 
-#edit-button {
-  background: linear-gradient(135deg, #30d158, #34c759);
+/* cores estilo iOS */
+#power-button { background: linear-gradient(135deg, #ff3b30, #ff6b6b); }
+#edit-button { background: linear-gradient(135deg, #34c759, #30d158); }
+#settings-button { background: linear-gradient(135deg, #007aff, #5ac8fa); }
+#save-button { background: linear-gradient(135deg, #ff9500, #ffcc00); }
+#mirror-link-button { background: linear-gradient(135deg, #5856d6, #a29bfe); }
+
+/* botões internos */
+#shut-down-button { background: #ff3b30; }
+#restart-button { background: #ff9500; }
+#restart-mm-button { background: #007aff; }
+#monitor-on-button { background: #34c759; }
+#monitor-off-button { background: #8e8e93; }
+
+/* esconder ícones */
+.fa {
+  display: none;
 }
 
-#settings-button {
-  background: linear-gradient(135deg, #0a84ff, #5ac8fa);
-}
-
-#save-button {
-  background: linear-gradient(135deg, #ff9f0a, #ffd60a);
-}
-
-#mirror-link-button {
-  background: linear-gradient(135deg, #5856d6, #7d7aff);
-}
-
-/* ===== ESCONDER SUBMENUS ===== */
-.power-menu,
-.edit-menu,
-.settings-menu {
-  display: none !important;
+/* texto centralizado */
+.text {
+  display: block;
+  width: 100%;
 }
 
 
