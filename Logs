@@ -126,5 +126,34 @@ nano ~/MagicMirror/modules/MMM-Remote-Control/remote.html
 
 
 
+function updateHeader(title) {
+  const header = document.querySelector(".header");
+  if (header) header.textContent = title;
+}
+
+/* OBSERVA MUDANÇA DE MENU */
+const observer = new MutationObserver(() => {
+  if (document.querySelector(".main-menu.active")) {
+    updateHeader("Menu");
+  }
+  if (document.querySelector(".power-menu.active")) {
+    updateHeader("Energia");
+  }
+  if (document.querySelector(".settings-menu.active")) {
+    updateHeader("Configurações");
+  }
+  if (document.querySelector(".edit-menu.active")) {
+    updateHeader("Módulos");
+  }
+});
+
+observer.observe(document.body, {
+  subtree: true,
+  attributes: true,
+  attributeFilter: ["class"]
+});
+
+
+
 
 
