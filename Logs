@@ -28,149 +28,97 @@ fi
 
 nano ~/MagicMirror/modules/MMM-Remote-Control/remote.css
 
-body {
-  background: #000;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #fff;
-}
-
-.container {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* HEADER */
+/* HEADER IOS */
 .header {
-  text-align: center;
-  font-size: 13px;
-  letter-spacing: 2px;
-  opacity: 0.5;
-  margin-bottom: 20px;
-}
+  position: sticky;
+  top: 0;
+  z-index: 20;
 
-/* CARD SUPERIOR */
-.header::after {
-  content: "MagicMirror²";
-  display: block;
-  margin-top: 15px;
-  padding: 16px;
-  border-radius: 16px;
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
-/* MENU BASE */
-.menu {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px;
+
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(12px);
+
+  font-size: 17px;
+  font-weight: 600;
 }
 
-/* CONTROLE DE VISIBILIDADE (SEM QUEBRAR JS) */
+/* BOTÃO VOLTAR */
+#back-button {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* ESCONDER SETA PADRÃO */
+#back-button::after {
+  display: none;
+}
+
+/* MENU COM TRANSIÇÃO */
+.menu {
+  position: relative;
+}
+
+/* TODOS MENUS */
 .menu .main-menu,
 .menu .power-menu,
 .menu .settings-menu,
 .menu .edit-menu {
-  display: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.menu .main-menu.active,
-.menu .power-menu.active,
-.menu .settings-menu.active,
-.menu .edit-menu.active {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+/* ENTRADA */
+.menu .active {
+  transform: translateX(0);
+  opacity: 1;
 }
 
-/* ITEM */
+/* SAÍDA (quando troca) */
+.menu .main-menu:not(.active),
+.menu .power-menu:not(.active),
+.menu .settings-menu:not(.active),
+.menu .edit-menu:not(.active) {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+/* LISTA */
 .menu-element {
   height: 56px;
   border-radius: 14px;
+  margin-bottom: 10px;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  padding: 0 16px;
 
   background: #111;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.05);
 
-  transition: all 0.15s ease;
-}
-
-/* TOQUE */
-.menu-element:active {
-  transform: scale(0.97);
-  background: #1a1a1c;
+  padding: 0 16px;
 }
 
 /* TEXTO */
 .text {
   flex: 1;
-  margin-left: 10px;
-  font-size: 15px;
+  margin-left: 12px;
 }
 
-/* ÍCONE ESQUERDA */
-.menu-element::before {
-  font-family: "FontAwesome";
-  font-size: 16px;
-  opacity: 0.7;
-}
-
-/* SETA DIREITA */
+/* SETA */
 .menu-element::after {
   content: "›";
-  font-size: 18px;
   opacity: 0.3;
-}
-
-/* ICONES */
-#power-button::before { content: "\f011"; }
-#edit-button::before { content: "\f044"; }
-#settings-button::before { content: "\f013"; }
-#save-button::before { content: "\f0c7"; }
-#mirror-link-button::before { content: "\f08e"; }
-
-#shut-down-button::before { content: "\f011"; }
-#restart-button::before { content: "\f021"; }
-#restart-mm-button::before { content: "\f01e"; }
-#monitor-on-button::before { content: "\f26c"; }
-#monitor-off-button::before { content: "\f26c"; }
-
-/* REMOVE ICONES ANTIGOS */
-.fa {
-  display: none;
-}
-
-
-/* SCROLL PARA SUBMENUS LONGOS */
-.menu .main-menu.active,
-.menu .power-menu.active,
-.menu .settings-menu.active,
-.menu .edit-menu.active {
-  max-height: 75vh;
-  overflow-y: auto;
-  padding-right: 6px;
-}
-
-/* SCROLL SUAVE (iPhone feel) */
-.menu .main-menu.active::-webkit-scrollbar,
-.menu .power-menu.active::-webkit-scrollbar,
-.menu .settings-menu.active::-webkit-scrollbar,
-.menu .edit-menu.active::-webkit-scrollbar {
-  width: 4px;
-}
-
-.menu .main-menu.active::-webkit-scrollbar-thumb,
-.menu .power-menu.active::-webkit-scrollbar-thumb,
-.menu .settings-menu.active::-webkit-scrollbar-thumb,
-.menu .edit-menu.active::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
-  border-radius: 10px;
 }
 
 
