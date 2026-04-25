@@ -2,15 +2,32 @@
   module: "MMM-Schedule",
   config: {
     schedule: [
+      /* MANHÃ */
       {
-        module: "newsfeed",
+        module: ["newsfeed", "weather", "compliments"],
         from: "06:00",
         to: "09:00"
       },
+
+      /* TREINO (FOCO) */
       {
-        module: "newsfeed",
+        module: ["clock", "weather"],
+        from: "09:00",
+        to: "18:00"
+      },
+
+      /* NOITE */
+      {
+        module: ["newsfeed", "weather", "clock"],
         from: "18:00",
         to: "22:00"
+      },
+
+      /* MADRUGADA */
+      {
+        module: ["clock"],
+        from: "22:00",
+        to: "06:00"
       }
     ]
   }
