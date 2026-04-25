@@ -1,4 +1,35 @@
 
+
+cd ~/MagicMirror/modules
+git clone https://github.com/ianperrin/MMM-Schedule.git
+
+{
+  module: "MMM-Schedule",
+  config: {
+    schedule: [
+      {
+        module: "newsfeed",
+        from: "06:00",
+        to: "09:00"
+      },
+      {
+        module: "newsfeed",
+        from: "18:00",
+        to: "22:00"
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
 echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/magicmirror-nopasswd
 
 nano ~/MagicMirror/modules/MMM-Remote-Control/translations/en.json
