@@ -1,4 +1,4 @@
-
+git config --global --unset credential.helper
 
 cd ~/MagicMirror/modules
 git clone https://github.com/ianperrin/MMM-Schedule.git
