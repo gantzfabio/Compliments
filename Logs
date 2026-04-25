@@ -1,15 +1,23 @@
-cd ~/MagicMirror/modules
+{
+  module: "MMM-Schedule",
+  config: {
+    schedule: [
+      {
+        module: "newsfeed",
+        from: "06:00",
+        to: "09:00"
+      },
+      {
+        module: "newsfeed",
+        from: "18:00",
+        to: "22:00"
+      }
+    ]
+  }
+}
 
-wget https://github.com/ianperrin/MMM-Schedule/archive/refs/heads/master.zip
 
-unzip master.zip
 
-mv MMM-Schedule-master MMM-Schedule
-
-rm master.zip
-
-cd ~/MagicMirror/modules
-git clone https://github.com/ianperrin/MMM-Schedule.git
 
 {
   module: "MMM-Schedule",
