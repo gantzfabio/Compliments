@@ -2,11 +2,9 @@
 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
 
 cd ~/MagicMirror/modules
-git clone https://github.com/ianperrin/MMM-Schedule.git
-
-git clone --depth=1 https://github.com/ianperrin/MMM-Schedule.git
-
-git -c credential.helper= clone https://github.com/ianperrin/MMM-Schedule.git
+git clone https://github.com/ianperrin/MMM-ModuleScheduler.git
+cd MMM-ModuleScheduler
+npm install --omit=dev
 
 
 
